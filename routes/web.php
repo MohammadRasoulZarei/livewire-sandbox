@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Auth\Index as AuthIndex;
+use App\Livewire\Tasks\Task;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->middleware('auth')->name('home');
+Route::get('/login',AuthIndex::class)->name('login')->middleware('guest');
+Route::get('/task',Task::class)->name('task');
+Route::get('/logout',function(){
+    auth()->logout();
+    return redirect('/');
 });
