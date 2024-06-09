@@ -8,6 +8,8 @@
     <title>Document</title>
     @livewireStyles
     @vite('resources/admin/css/app.css')
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> --}}
+    @yield('style')
 </head>
 
 <body>
@@ -15,8 +17,16 @@
     <div class="container">
             @yield('content')
     </div>
+
     @livewireScripts
     @vite('resources/admin/js/app.js')
+    
+    {{-- sweetalert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
+
+{{-- end of sweetalert --}}
+    @yield('scripts')
 </body>
 
 </html>

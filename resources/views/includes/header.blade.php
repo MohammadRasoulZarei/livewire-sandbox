@@ -14,10 +14,14 @@
                     <a class="nav-link active" aria-current="page" href="{{route('task')}}">tasks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('product.index')}}">products</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    {{-- @livewire('product.cartIcon') --}}
+                    <livewire:product.cartIcon @refresh-cartIcon="$refresh">
+                </li>
                 @auth
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{auth()->user()->name}}</a>

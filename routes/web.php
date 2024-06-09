@@ -1,6 +1,9 @@
 <?php
 
 use App\Livewire\Auth\Index as AuthIndex;
+use App\Livewire\Product\Create as CreateProduct;
+use App\Livewire\Product\Index as ProductIndex;
+use App\Livewire\Product\CartIndex ;
 use App\Livewire\Tasks\Task;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +21,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->middleware('auth')->name('home');
-Route::get('/login',AuthIndex::class)->name('login')->middleware('guest');
+
 Route::get('/task',Task::class)->name('task');
+
+Route::get('/login',AuthIndex::class)->name('login')->middleware('guest');
 Route::get('/logout',function(){
     auth()->logout();
     return redirect('/');
+});
+Route::get('products',ProductIndex::class)->name('product.index');
+Route::get('products/create',CreateProduct::class)->name('product.create');
+Route::get('cart',CartIndex::class)->name('cart.index');
+Route::get('/test',function(){
+     \Cart::clear();
+    // dd(\Cart::getContent());
+    // return view('layouts.app');
 });
