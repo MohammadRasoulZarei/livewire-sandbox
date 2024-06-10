@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    protected $guarded=[];
+    protected $table='rooms';
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }

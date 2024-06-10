@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('product.index')}}">products</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('chat.index')}}">chat</a>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">

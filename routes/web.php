@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Livewire\Auth\Index as AuthIndex;
 use App\Livewire\Product\Create as CreateProduct;
 use App\Livewire\Product\Index as ProductIndex;
@@ -32,6 +33,8 @@ Route::get('/logout',function(){
 Route::get('products',ProductIndex::class)->name('product.index');
 Route::get('products/create',CreateProduct::class)->name('product.create');
 Route::get('cart',CartIndex::class)->name('cart.index');
+Route::get('chat',[ChatController::class,'index'])->name('chat.index');
+Route::get('chat/{room:slug}',[ChatController::class,'showRoom'])->name('showRoom');
 Route::get('/test',function(){
      \Cart::clear();
     // dd(\Cart::getContent());
